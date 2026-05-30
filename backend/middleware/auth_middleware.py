@@ -1,17 +1,24 @@
 from functools import wraps
+from datetime import datetime, timezone
 
 import jwt
 from flask import jsonify, request
 
 from config.settings import Config
 
-
 def create_token(user):
     payload = {
         "user_id": user["id"],
         "email": user["email"],
+        "exp": datetime.now(timezone.utc)
+               + Config.JWT_EXPIRES_DELTA
     }
-    return jwt.encode(payload, Config.JWT_SECRET, algorithm="HS256")
+
+    return jwt.encode(
+        payload,
+        Config.JWT_SECRET,
+        algorithm="HS256"
+    )
 
 
 def token_required(route):
