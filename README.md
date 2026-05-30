@@ -1,4 +1,4 @@
-# ✈️ WayfareWise
+   # ✈️ WayfareWise
 
 > Discover destinations that match your vibe, not just your search query.
 
