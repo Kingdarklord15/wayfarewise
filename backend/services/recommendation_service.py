@@ -254,17 +254,12 @@ def score_destination(
         mood_overlap
     ) / max(len(trip_moods), 1)
 
-    # ---------- HARD MOOD PENALTY ----------
-    print("trip mood =", trip["mood"])
-    print("destination moods =", destination["moods"])
-    print("mood overlap =", mood_overlap)
+
 
     if mood_score == 0:
         mood_score = -0.8
 
-    # ---------- INTEREST SCORE ----------
-    print("trip interests =", interests)
-    print("destination tags =", tags)
+
 
     interest_score = len(
         interests & tags
@@ -335,17 +330,6 @@ def score_destination(
         in best_cities
     ):
         start_city_score = 1.0
-
-    print("\n----------------")
-    print("Destination:", destination["name"])
-    print("interest_score =", interest_score)
-    print("mood_score =", mood_score)
-    print("group_score =", group_score)
-    print("budget_score =", budget_score)
-    print("season_score =", season_score)
-    print("days_score =", days_score)
-    print("semantic_score =", semantic_score)
-    print("start_city_score =", start_city_score)
 
 
     # ---------- FINAL WEIGHTS ----------
