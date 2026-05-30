@@ -1,188 +1,266 @@
-# WayfareWise
+# ✈️ WayfareWise
 
-A complete full-stack AI Travel Recommendation SaaS built with React + Vite, TailwindCSS, Framer Motion, Flask, MongoDB, JWT authentication, OpenAI API integration, and Mapbox-ready interactive maps.
+> Discover destinations that match your vibe, not just your search query.
 
-## Folder Structure
+WayfareWise is an AI-powered travel recommendation platform designed to help travelers find destinations that align with their interests, mood, budget, travel style, and trip duration. Instead of endlessly browsing travel blogs and social media, users can receive personalized destination suggestions and generate travel plans tailored to their preferences.
+
+Whether you're looking for a peaceful mountain retreat, a budget-friendly getaway, a cultural experience, or an adventurous vacation, WayfareWise helps you make better travel decisions with intelligent recommendations.
+
+---
+
+## 🌟 Problem Statement
+
+Planning a trip can be overwhelming.
+
+Most travel platforms focus on bookings rather than helping users discover where they should actually go. Travelers often know how they want to feel during a trip but struggle to identify destinations that match their expectations.
+
+WayfareWise solves this problem by combining recommendation algorithms, travel data, weather insights, and AI-powered planning to create a smarter travel discovery experience.
+
+---
+
+## 🚀 Features
+
+### 🎯 Smart Destination Matching
+
+Receive personalized destination recommendations based on:
+
+* Travel interests
+* Budget
+* Travel group
+* Mood
+* Season
+* Trip duration
+
+---
+
+### 🤖 AI-Powered Travel Planning
+
+Generate customized travel itineraries tailored to the selected destination and travel preferences.
+
+---
+
+### 🌦 Weather Intelligence
+
+View weather information before finalizing travel decisions.
+
+Features include:
+
+* Current weather conditions
+* Weather-aware travel planning
+* Destination suitability insights
+
+---
+
+### 📍 Location-Based Intelligence
+
+Utilizes user preferences and destination context to recommend locations that better align with travel goals.
+
+---
+
+### 🗺 Interactive Maps
+
+Visualize recommended destinations using integrated mapping services.
+
+Features include:
+
+* Destination visualization
+* Geographic exploration
+* Interactive destination discovery
+
+---
+
+### 🔐 Secure Authentication
+
+User authentication system with:
+
+* Registration
+* Login
+* Protected routes
+* Session management
+
+---
+
+### 🚧 Nearby Attraction Recommendations
+
+Suggest attractions and points of interest around selected destinations.
+
+**Status:** Under Development
+
+---
+
+### 🚧 Intelligent Map Suggestions
+
+Future enhancement that will provide:
+
+* Smart route suggestions
+* Nearby destination intelligence
+* Attraction clustering
+* Interactive exploration assistance
+
+**Status:** Under Development
+
+---
+
+## 🛠 Technology Stack
+
+### Frontend
+
+* React
+* Vite
+* React Router
+* Context API
+* CSS
+
+### Backend
+
+* Flask
+* Python
+* REST APIs
+
+### AI & Recommendation Engine
+
+* Embedding-based similarity matching
+* Weighted scoring system
+* Semantic recommendation engine
+
+### Data Layer
+
+* CSV-based destination dataset
+* JSON destination metadata
+
+### External Integrations
+
+* Weather APIs
+* Map APIs
+* OpenAI Embeddings
+
+---
+
+## 📂 Project Structure
 
 ```text
-ai-travel-planner/
-├── frontend/
-│   ├── src/
-│   │   ├── animations/
-│   │   ├── assets/
-│   │   ├── components/
-│   │   ├── context/
-│   │   ├── hooks/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   └── utils/
-│   ├── .env.example
-│   ├── index.html
-│   ├── package.json
-│   ├── postcss.config.js
-│   ├── tailwind.config.js
-│   └── vite.config.js
-├── backend/
-│   ├── config/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── services/
-│   ├── .env.example
-│   ├── app.py
-│   └── requirements.txt
-├── .gitignore
+WayfareWise
+│
+├── frontend
+│   ├── src
+│   │   ├── components
+│   │   ├── pages
+│   │   ├── services
+│   │   ├── hooks
+│   │   ├── context
+│   │   └── routes
+│   │
+│   └── public
+│
+├── backend
+│   ├── controllers
+│   ├── routes
+│   ├── services
+│   ├── data
+│   └── app.py
+│
 └── README.md
 ```
 
-## Features
+---
 
-- Cinematic landing page with premium dark SaaS UI
-- Signup/login with hashed passwords and JWT authentication
-- AI travel chat assistant powered by OpenAI when `OPENAI_API_KEY` is set
-- Streaming AI chat responses over Server-Sent Events
-- Deterministic fallback AI responses when no OpenAI key is configured
-- Recommendation engine using budget, weather, interests, travel type, season, and history signals
-- Vector embedding recommendations with OpenAI embeddings and local fallback vectors
-- AI itinerary generation
-- Hotel matching by budget, luxury, family, workcation, and backpacking style
-- Hidden gems recommender
-- Weather-aware travel suggestions
-- Review intelligence summaries
-- Budget optimization
-- Crowd prediction
-- Interactive map panel with Mapbox when token is configured, demo map fallback otherwise
-- Dashboard with saved trips, recent searches, and favorite destinations
-- Vercel-ready frontend and Render-ready backend
+## 🧠 How Recommendations Work
 
-## Backend Setup
+WayfareWise combines multiple factors to generate recommendations:
+
+1. User interests
+2. Travel mood
+3. Budget preferences
+4. Group type
+5. Season
+6. Trip duration
+
+The recommendation engine evaluates destination similarity and ranks destinations according to how well they align with the user's preferences.
+
+---
+
+## ⚙️ Installation
+
+### Clone Repository
 
 ```bash
-cd backend
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-copy .env.example .env
-python app.py
+git clone https://github.com/kingdarklord15/WayfareWise.git
+cd WayfareWise
 ```
 
-Backend runs on:
+---
 
-```text
-http://127.0.0.1:5000
-```
-
-## Frontend Setup
-
-Open a second terminal:
+### Frontend Setup
 
 ```bash
 cd frontend
+
 npm install
-copy .env.example .env
+
 npm run dev
 ```
 
-Frontend runs on:
+---
 
-```text
-http://localhost:5173
-```
-
-## Environment Variables
-
-Backend `.env`:
-
-```text
-SECRET_KEY=replace-with-a-long-random-secret
-JWT_SECRET=replace-with-a-different-long-random-secret
-JWT_EXPIRES_DAYS=7
-MONGO_URI=mongodb://localhost:27017/ai_travel_planner
-OPENAI_API_KEY=sk-your-openai-api-key
-OPENAI_MODEL=gpt-4.1-mini
-OPENAI_EMBEDDING_MODEL=text-embedding-3-small
-MAPBOX_TOKEN=pk-your-mapbox-token
-OPENWEATHER_API_KEY=your-openweather-key
-CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
-FLASK_DEBUG=true
-PORT=5000
-```
-
-Frontend `.env`:
-
-```text
-VITE_API_URL=http://127.0.0.1:5000/api
-VITE_MAPBOX_TOKEN=pk-your-mapbox-token
-```
-
-## MongoDB
-
-Use local MongoDB or MongoDB Atlas. Put the connection string in `backend/.env`.
-
-If MongoDB is not running, the backend uses an in-memory fallback so the app still works for demos. For production, use MongoDB Atlas.
-
-## OpenAI API
-
-The backend uses the OpenAI Python SDK and the Responses API. Add your key to `backend/.env`:
-
-```text
-OPENAI_API_KEY=sk-your-openai-api-key
-OPENAI_MODEL=gpt-4.1-mini
-```
-
-Without a key, chat, itinerary, and review intelligence still return high-quality fallback responses so the project remains demoable.
-
-Embeddings use `text-embedding-3-small` by default. If no OpenAI key is configured, the backend uses a deterministic local hashing vectorizer so semantic recommendation scoring still works during demos.
-
-## Mapbox
-
-Add a public Mapbox token to `frontend/.env`:
-
-```text
-VITE_MAPBOX_TOKEN=pk-your-mapbox-token
-```
-
-Without a token, the UI displays an interactive styled demo map with live backend markers.
-
-## Main API Routes
-
-```text
-POST /api/auth/signup
-POST /api/auth/login
-GET  /api/user/dashboard
-POST /api/user/favorite
-GET  /api/travel/destinations
-POST /api/travel/recommendations
-POST /api/travel/itinerary
-POST /api/travel/chat
-POST /api/travel/chat/stream
-POST /api/travel/hotels/:destinationId
-GET  /api/travel/hidden-gems/:destinationId
-GET  /api/travel/weather/:destinationId
-GET  /api/travel/reviews/:destinationId
-POST /api/travel/budget/:destinationId
-POST /api/travel/crowd/:destinationId
-POST /api/travel/maps
-POST /api/travel/save-trip
-```
-
-## Deployment
-
-Frontend on Vercel:
-
-```bash
-cd frontend
-npm run build
-```
-
-Set `VITE_API_URL` to your Render backend URL plus `/api`.
-
-Backend on Render:
+### Backend Setup
 
 ```bash
 cd backend
-gunicorn app:app
+
+pip install -r requirements.txt
+
+python app.py
 ```
 
-Set environment variables in Render, especially `MONGO_URI`, `JWT_SECRET`, `OPENAI_API_KEY`, and `CORS_ORIGINS`.
+---
+
+## 🔮 Future Roadmap
+
+Planned enhancements include:
+
+* Nearby attraction intelligence
+* Smart map recommendations
+* Hotel recommendation system
+* Flight integration
+* Real-time travel alerts
+* Group travel planning
+* AI travel chatbot
+* Destination review system
+* Travel budget optimization
+* Personalized travel history
+
+---
+
+## 🎓 Learning Outcomes
+
+This project helped us gain experience with:
+
+* Full Stack Development
+* React Application Architecture
+* Flask Backend Development
+* REST API Design
+* Recommendation Systems
+* AI Integration
+* Authentication Systems
+* Data Processing
+* UI/UX Design
+* Team Collaboration
+
+---
+
+##  Team
+
+# KDV
+# MS
+
+Both team members collaboratively contributed to all aspects of the project, including frontend development, backend development, AI integration, recommendation systems, UI/UX design, testing, validation, and overall system design.
+
+---
+
+##  Acknowledgements
+
+Built as part of a travel technology project focused on intelligent destination discovery and personalized travel planning.
+
+Our goal was simple:
+
+**Help people spend less time searching and more time exploring.**
